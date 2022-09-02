@@ -5,9 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import User from '../../models/User';
 import { cadastroUsuario } from '../../service/Service';
-import "./CadastroUsuario.css";
+import "./CadastrarUsuario.css";
 
-function CadastroUsuario() {
+function CadastrarUsuario() {
 
   let navigate = useNavigate();
     const [confirmarSenha,setConfirmarSenha] = useState<String>("")
@@ -148,4 +148,4 @@ function CadastroUsuario() {
   );
 }
 
-export default CadastroUsuario;
+export default CadastrarUsuario;
