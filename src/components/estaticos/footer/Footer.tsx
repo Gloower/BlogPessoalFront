@@ -2,7 +2,7 @@ import { Grid, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from '@mui/icons-material/GitHub';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 import './Footer.css';
 
@@ -13,7 +13,7 @@ function Footer() {
                 <Grid alignItems="center" item xs={12}>
                     <Box className="footer-container">
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom>Minhas redes sociais</Typography>
+                            <Typography variant="h5" align="center" gutterBottom>Me siga nas redes sociais:</Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <a href="https://github.com/Gloower" target="_blank">
@@ -21,6 +21,9 @@ function Footer() {
                             </a>
                             <a href="https://www.linkedin.com/in/nicolas-alves-a19650214/" target="_blank">
                                 <LinkedInIcon className="redes"/>
+                            </a>
+                            <a href="https://www.twitter.com/canfuls" target="_blank">
+                                <TwitterIcon className="redes"/>
                             </a>
                         </Box>
                     </Box>
@@ -30,7 +33,7 @@ function Footer() {
                         </Box>
                         <Box>
                             <a target="_blank" href="https://brasil.generation.org">
-                                <Typography variant="subtitle2" gutterBottom className="sub-2" align="center">brasil.generation.org</Typography>
+                                <Typography variant="subtitle2" gutterBottom className="sub-2 text-decorator-none" align="center">brasil.generation.org</Typography>
                             </a>
                         </Box>
                     </Box>
