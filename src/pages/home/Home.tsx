@@ -3,17 +3,29 @@ import TabPostagem from "../../components/postagens/tabpostagem/TabPostagem";
 import { Grid, Button, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem";
-import { useNavigate } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function Home() {
   let navigate = useNavigate();
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado!");
+      toast.error('Você precisa estar logado!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
       navigate("/login");
     }
   }, [token]);
@@ -36,7 +48,7 @@ function Home() {
               align="center"
               className="titulo-h3"
             >
-              Seja bem-vinde s2
+              Seja bem-vindo!
             </Typography>
             <Typography
               variant="h5"
@@ -53,17 +65,18 @@ function Home() {
             <Box marginRight={1}>
               <ModalPostagem />
             </Box>
-            <Button variant="outlined" className="btn">
-              Ver Postagens
-            </Button>
+            <Link to="/posts" className="text-decorator-none">
+              <Button variant="outlined" className="btn">
+                Ver Postagens
+              </Button>
+            </Link>
           </Box>
         </Grid>
         <Grid item xs={6}>
           <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F37.media.tumblr.com%2F5d7df7d34b9f5e76ab12b22579ec55df%2Ftumblr_na697gAEzS1stwx7xo1_400.gif&f=1&nofb=1"
-            alt=""
-            width="790px"
-            height="512px"
+            src="https://64.media.tumblr.com/58d8a7c0e3c64f7e4505cdb4091eb159/tumblr_ozrtbsdD871w4zyh1o5_500.gifv"
+            alt="Esqueleto maneiro"
+            width="200"
           />
         </Grid>
         <Grid xs={12} className="postagens">
