@@ -3,16 +3,26 @@ import { Box } from '@mui/material';
 
 import './NotFound.css';
 
-function NotFound(){
+import React from "react";
+
+function NotFound() {
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center" className="container">
-      <Grid alignItems="center">
-      <Box>
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F37.media.tumblr.com%2F5d7df7d34b9f5e76ab12b22579ec55df%2Ftumblr_na697gAEzS1stwx7xo1_400.gif&f=1&nofb=1" alt="" />
-      </Box>
-      </Grid>
-    </Grid>
-  )
+    <div id="error-page">
+      <div className="content">
+        <h2 className="header">{"404"}</h2>
+        <h4>{"Opps! Page not found"}</h4>
+        <p>
+          {
+            "Sorry, the page you're looking for doesn't exist. If you think something is broken, report a problem."
+          }
+        </p>
+        <div className="btns">
+          <a href="https://open.spotify.com/playlist/4JTe5v87L5gbxDS0eo1tx0?si=adba9b5f252f43a5">Escute uma musica</a>
+        </div>
+      </div>
+    </div>
+  );
 }
+
 
 export default NotFound;

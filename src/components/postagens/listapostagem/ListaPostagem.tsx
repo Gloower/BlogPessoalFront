@@ -11,17 +11,29 @@ import {
 import "./ListaPostagem.css";
 import { useEffect, useState } from "react";
 import Postagem from "../../../models/Postagem";
-import useLocalStorage from "react-use-localstorage";
 import { busca } from "../../../services/Service";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   let navigate = useNavigate();
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado");
+      toast.error('Você precisa estar logado!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
       navigate("/login");
     }
   }, [token]);
